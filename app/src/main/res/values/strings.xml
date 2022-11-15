@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">apkaa</string>
+    <string name="button">Button</string>
+    <string name="button2">Button</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="todo">TODO</string>
+    <string name="silnia">Silnia</string>
+    <string name="wpisz_liczbe_do_obliczenia_silni">Wpisz liczbe do obliczenia silni</string>
+    <string name="oblicz">Oblicz!</string>
+</resources>
