@@ -1,64 +1,69 @@
 package com.example.apkaa
 
+import android.annotation.SuppressLint
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.apkaa.R.drawable.zdjecie3
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
-    var x = 5
+
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if(x==5){
+        var x = 1
 
-            findViewById<Button>(R.id.nextbutt).setOnClickListener{
+        findViewById<Button>(R.id.nextbutt).setOnClickListener {
+            if (x == 1) {
 
                 findViewById<ImageView>(R.id.imageView).setImageResource(zdjecie3)
+                x = 2
 
-            }
-
-            x += 1
-
-        }
-
-        if(x==6){
-
-            findViewById<Button>(R.id.previousbutt).setOnClickListener {
+            } else if (x == 0) {
 
                 findViewById<ImageView>(R.id.imageView).setImageResource(R.drawable.zdjecie1)
+                x = 1
+            } else if (x == 2) {
+
+                findViewById<ImageView>(R.id.imageView).setImageResource(R.drawable.zdjecie2)
+                x = 0
 
             }
+        }
+        findViewById<Button>(R.id.previousbutt).setOnClickListener {
 
-            x -= 1
+            if (x == 1) {
+
+                findViewById<ImageView>(R.id.imageView).setImageResource(R.drawable.zdjecie2)
+                x = 0
+            } else if (x == 2) {
+
+                findViewById<ImageView>(R.id.imageView).setImageResource(R.drawable.zdjecie1)
+                x = 1
+            } else if (x == 0) {
+
+                findViewById<ImageView>(R.id.imageView).setImageResource(zdjecie3)
+                x = 2
+
+            }
 
         }
 
-        if(x==5){
-
-            findViewById<Button>(R.id.previousbutt).setOnClickListener{
-
-                findViewById<ImageView>(R.id.imageView).setImageResource(R.drawable.zdjecie2)
-
-            }
-
-            x-=1
-
+        fun multiplyNumbers(num: Int): Int {
+            if (num >= 1)
+                return num * multiplyNumbers(num - 1)
+            else
+                return 1
         }
 
         findViewById<Button>(R.id.obliczbutt).setOnClickListener {
 
-            val v1 = findViewById<EditText>(R.id.silnia) as EditText
-            val tot = findViewById<EditText>(R.id.wynik) as TextView
-
-            val v2 = v1.text.toString().toInt()
-            tot.text = (v1.toString())
+            findViewById<TextView>(R.id.wynik).text = (multiplyNumbers(R.id.silnia).toString())
 
         }
 
