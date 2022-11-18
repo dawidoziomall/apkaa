@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             else
                 return 1
         }
-
+//
         findViewById<Button>(R.id.obliczbutt).setOnClickListener {
 
             findViewById<TextView>(R.id.wynik).text = (multiplyNumbers(R.id.silnia).toString())
